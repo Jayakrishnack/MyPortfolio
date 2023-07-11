@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAYAKRISHNA Portfolio WEBSITE</title>
+  <link rel="stylesheet" href="porrt.css">
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <script src="https://kit.fontawesome.com/c8bad82e18.js" crossorigin="anonymous"></script>
+  <link rel="manifest" href="/site.webmanifest">
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('f.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #eeff00;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      animation-name: fadeIn;
+      animation-duration: 1s;
+    }
+
+    .center-heading {
+      color: blue;
+    }
+
+    /* Navigation styles */
+    .index {
+      background-color: #191515;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100000;
+      box-sizing: border-box;
+    }
+
+    nav.index ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav.index ul li {
+      margin: 0 10px;
+    }
+
+    nav.index ul a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      position: relative;
+    }
+
+    nav.index ul a::after {
+      content: '';
+      width: 100%;
+      height: 3px;
+      background: #9f2e2e;
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      transition: 0.5s;
+    }
+
+    nav.index ul a:hover::after {
+      width: 100%;
+    }
+
+    nav.index i {
+      display: none;
+    }
+
+    /* Main content styles */
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 30px;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+    }
+
+    section:nth-child(odd) {
+      animation-name: slideInFromLeft, fadeIn;
+    }
+
+    section:nth-child(even) {
+      animation-name: slideInFromRight, fadeIn;
+    }
+
+    section:first-child {
+      animation-delay: 0.5s;
+    }
+
+    section:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    section:nth-child(3) {
+      animation-delay: 1.5s;
+    }
+
+    section:nth-child(4) {
+      animation-delay: 2s;
+    }
+
+    section:nth-child(5) {
+      animation-delay: 2.5s;
+    }
+
+    section h2 {
+      color: rgb(203, 43, 8);
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #1f652a;
+      color: #fff;
+      padding: 20px;
+    }
+
+    footer .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer .contact {
+      margin-right: 20px;
+    }
+
+    footer h3 {
+      color: #fff;
+    }
+
+    footer .social-links a {
+      color: #53c0f3e8;
+      margin-right: 10px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    footer p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Other styles */
+    .header-text {
+      padding: 20px 10%;
+      margin-top: 0;
+      font-size: 30px;
+    }
+
+    .header-text h1 {
+      font-size: 80px;
+      margin-top: 40px;
+    }
+
+    .header-text h1 span {
+      color: red;
+    }
+
+    .wrapper {
+      overflow: hidden;
+    }
+
+    .wrapper:hover img {
+      transform: scale(1.2);
+    }
+
+    #education {
+      padding: 30px 0;
+    }
+
+    .edu-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: 50px;
+    }
+    .edu-list div {
+      color: white;
+    }
+
+
+    .edu-list div {
+      background: #262626;
+      padding: 40px;
+      font-size: 15px;
+      font-weight: 300;
+      border-radius: 10px;
+      transition: background 0.5s, transform 0.5s;
+    }
+
+    .edu-list div i {
+      font-size: 50px;
+    }
+
+    .edu-list div:hover {
+      background: #ff004f;
+      transform: translate(-10px);
+    }
+
+    .inti {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: 50px;
+      width: 100%;
+    }
+
+    .int {
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .int img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .inti {
+      display: grid;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .main p i {
+      color: #ff004f;
+      font-size: 25px;
+    }
+
+    .main {
+      font-size: px;
+    }
+
+    .skill ul li i {
+      color: #ff004f;
+      font-size: 25px;
+    }
+
+    .web p a i {
+      color: #194886;
+      font-size: 25px;
+    }
+
+    .card-body h5 {
+      color: #6fb2a3;
+      font-size: 15px;
+    }
+
+    .card-body a {
+      color: #8f516d;
+    }
+
+    .btn.btn2{
+      display: inline-block;
+      background: #ff004f;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .btn.btn2:hover {
+      background-color: #d6003a;
+    }
+
+    /* Responsive styles */
+    @media only screen and (max-width: 600px) {
+      .header-text {
+        margin-top: 100%;
+        font-size: 16px;
+      }
+
+      .header-text h1 {
+        font-size: 40px;
+      }
+
+      .index ul i {
+        display: block;
+        font-size: 25px;
+      }
+
+      .index ul {
+        background: #ff004f;
+        position: fixed;
+        top: 0;
+        right: -2000px;
+        width: 150px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index: 2;
+      }
+
+      .index ul li {
+        display: block;
+        margin: 25px;
+      }
+
+      .index ul i {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+      }
+
+      .index i {
+        display: block;
+        font-size: 30px;
+      }
+
+      footer .footer-content {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 class="center-heading"><p style="color: #000000;">C K JAYA KRISHNA</p></h1>
+  </header>
+
+  <nav class="index">
+    <div class="index">
+      <ul id="sidemenu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#internships">Internships</a></li>
+        <li><a href="#Projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#Social connect">Social connect</a></li>
+        <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+      </ul>
+      <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+    </div>
+  </nav>
+
+  <main>
+    <section id="photo">
+      <h2></h2>
+    </section>
+
+    <div class="header-text">
+      <h1>Hi, I am <span>JAYAKRISHNA</span></h1>
+    </div>
+
+    <div class="wrapper">
+      <img src="chippa.jpg" alt="Profile Photo" height="400" width="200">
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Hello, I am an engineering student with a passion for solving problems and creating innovative solutions. I have a strong foundation in various engineering principles and am constantly seeking opportunities to learn and grow.</p>
+    </section>
+
+    <section id="education">
+      <div class="container"></div>
+      <h2>Education</h2>
+      <div class="edu-list">
+        <div>
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h3>B-TECH</h3>
+          <p>College name: GATES INSTITUTE OF TECHNOLOGY</p>
+          <p>Branch: CSE</p>
+        </div>
+        <div>
+          <i class="fa-solid fa-school"></i>
+          <h3>Intermediate</h3>
+          <p>College name: SSBN Jr College</p>
+          <p>Stream: MPC</p>
+          <p>Grade: 8.82</p>
+        </div>
+        <div>
+          <i class="fa-solid fa-building-columns"></i>
+          <h3>SSC</h3>
+          <p>College name: ZPHS NETRAPALLI</p>
+          <p>Grade: 9.5</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="internships">
+      <h2>Internships</h2>
+      <div class="inti">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Cloud Computing</h5>
+            <p class="card-text">I completed this internship from Zenecks Infotech for a period of 2 months.</p>
+            <a href="" class="btn btn-primary">CERTIFICATE <i class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Virtual Internship in Cloud Computing</h5>
+            <p class="card-text">I completed this internship from Eduskill (APSCHE) for a period of 6 weeks.</p>
+            <a href="https://drive.google.com/file/d/1XUfsx6f3Qi9mzvN8nU7E0a7kmBhlH-6k/view?usp=drivesdk" class="btn btn-primary">CERTIFICATE <i class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="skill">
+        <h2>Skills</h2>
+        <ul>
+          <li>Programming Languages: <br><i class="fa-brands fa-html5"></i> HTML, <br><i class="fa-brands fa-css3-alt"></i> CSS, <br><i class="fa-brands fa-js"></i> JS, <br><i class="fa-brands fa-python"></i> Python,<br> <i class="fa-brands fa-java"></i> JAVA, <br><i class="fa-brands fa-sql"></i> &nbsp;&nbsp;&nbsp;&nbsp; SQL</li>
+          <li>Software proficiency: <br> <i class="fa-brands fa-microsoft"></i> MS Office,<br> <i class="fa-solid fa-code"></i> Visual Studio Code,<br> <i class="fa-brands fa-github"></i> Github</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="Projects">
+      <h2>Projects</h2>
+      <div class="web">
+        <p>Developed PORTFOLIO website using HTML and CSS<br>MY WEBSITE
+          <a href="https://Jayakrishnack.github.io/MyPortfolio/"><i class="fa-solid fa-square-arrow-up-right"></i></a></p>
+      </div>
+    </section>
+
+   <section id="resume">
+      <h2>Resume</h2>
+      <button><a href="https://drive.google.com/file/d/1ZioFfkzUelBrjev_Hm4SJ6m2a7qLGSOS/view?usp=drivesdk" class="btn btn2" target="_blank"><p style="color: rgb(233, 238, 232);">Download resume</p></a></button> 
+    </section>
+
+    <p style="background-image: url('qw.jpg');"></p>
+  </main>
+
+  <footer text="black">
+    <nav class="footer">
+      <div class="footer-content">
+        <div class="main">
+          <section id="contact">
+            <h3><p style="color: #f90505;"></p>Contact Me</h3>
+            <a href="#contact"></a>
+          </section>
+
+          <p><i class="fa-solid fa-mail"></i> Email: <ckjayakrishna class="bnhalli"></ckjayakrishna>@gmail.com</p>
+          <p><i class="fa-solid fa-square-phone"></i> Phone: 9949804173</p>
+        </div>
+        <div class="main">
+          <section id="Social connect">
+            <h3><p style="color: #f20202;"></p>Follow Me</h3>
+            <a href="#Social connect"></a>
+          </section>
+          <div class="row social">
+            <a target="_blank" href="https://github.com/Jayakrishnack"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="https://in.linkedin.com/in/jayakrishna-chippagiri-karanam-844875265"><i class="fab fa-linkedin"></i></a>
+            <a target="_blank" href="https://www.facebook.com/jayakrishna.c.k"><i class="fab fa-facebook"></i></a>
+            <a target="_blank" href="https://instagram.com/jayakrishnac.k?igshid=ZDc4ODBmNjlmNQ=="><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </footer>
+
+  <script>
+    var sidemeu = document.getElementById("sidemenu");
+    function openmenu() {
+      sidemeu.style.right = "0";
+    }
+    function closemenu() {
+      sidemeu.style.right = "-200px";
+    }
+  </script>
+</body>
+
+</html>
